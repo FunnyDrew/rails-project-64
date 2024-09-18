@@ -2,14 +2,19 @@
 
 AllCops:
   DisplayCopNames: true
+
   Exclude:
     - "bin/**"
     - "db/schema.rb"
     - "db/migrate/**"
     - "vendor/**/*"
     - "node_modules/**/*"
+
   NewCops: enable
-  TargetRailsVersion: 6
+
+  SuggestExtensions: false
+
+  TargetRailsVersion: 7.1
   TargetRubyVersion: 3.2
 
 Layout/LineLength:
@@ -32,6 +37,8 @@ Metrics/MethodLength:
 
 Metrics/PerceivedComplexity:
   Enabled: false
+
+require: rubocop-rails
 
 Rails:
   Enabled: true
