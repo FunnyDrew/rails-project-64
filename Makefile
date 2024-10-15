@@ -6,7 +6,8 @@ setup:
 	yarn install
 
 
-lcheck: test lint
+
+check: test lint
 
 test:
 	bin/rails test
