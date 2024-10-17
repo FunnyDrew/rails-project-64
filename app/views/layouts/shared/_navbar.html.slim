@@ -6,26 +6,29 @@
 nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
     a.navbar-brand[href="#"]
       | BLOGERUS
-    button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"]
+    button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" 
+    aria-expanded="false" aria-label="Toggle navigation"]
 
-    span.navbar-toggler-icon
-    #navbarCollapse.collapse.navbar-collapse
-      ul.navbar-nav.mr-auto
-        li.nav-item.active
+    ul.navbar-nav.mr-auto
 
-    a.nav-link[href="#"]
-      | Home
-    span.sr-only
-      | (current)
-    li.nav-item
+    -if user_signed_in?
+      li.nav-link.disable
+      = current_user.email
 
-    a.nav-link[href="#"]
-      | Link
-    li.nav-item
+      li.nav-item.active.ml-4
+        = link_to 'Sign_out', destroy_user_session_path, data: { turbo_method: :delete }
 
-    a.nav-link.disabled[href="#"]
-      | Disabled
-    form.form-inline.mt-2.mt-md-0
-      input.form-control.mr-sm-2[type="text" placeholder="Search" aria-label="Search"]
-    button.btn.btn-outline-success.my-2.my-sm-0[type="submit"]
-      | Search
+    -else
+      li.nav-item.active.ml-4
+        = link_to 'Sign_in', new_user_session_path
+
+      li.nav-item.active.ml-4
+        = link_to 'Sign_up', new_user_registration_path
+     
+
+/   a.nav-link.disabled[href="#"]
+/     | Disabled
+/   form.form-inline.mt-2.mt-md-0
+/     input.form-control.mr-sm-2[type="text" placeholder="Search" aria-label="Search"]
+/   button.btn.btn-outline-success.my-2.my-sm-0[type="submit"]
+/     | Search
