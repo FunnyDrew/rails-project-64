@@ -3,6 +3,7 @@ class Posts::CommentsController < Posts::ApplicationController
 	def create
 
 		@post = resource_post
+		#debugger
 
 		if post_comment_params[:parent_id]
 
@@ -24,6 +25,7 @@ class Posts::CommentsController < Posts::ApplicationController
 	private
 
 	def post_comment_params
+		#debugger
 		params.require(:post_comment).permit(:content, :parent_id)
 	end
 
