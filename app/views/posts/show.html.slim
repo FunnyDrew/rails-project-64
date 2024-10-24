@@ -1,0 +1,16 @@
+h1.mt-5
+	= @post.title
+.mt-3
+	= @post.body
+hr
+= simple_form_for @post.comments.new, method: :post,  url: post_comments_path(@post) do |c|
+	=c.input :content
+	=c.submit
+/-get_hi
+hr
+/-debugger
+- @post.comments.where.not(id: nil).where(ancestry: "/").order(created_at: :desc).each do |comment|
+	//-debugger
+	- pp#############################
+	- pp comment
+	= render partial: "comment", locals: { comment: comment }
