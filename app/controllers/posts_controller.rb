@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.creator = current_user
 
     if @post.save
       redirect_to @post, notice: 'Пост создан'
@@ -47,7 +48,7 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    debugger
-    params.require(:post).permit(:title, :body, :category)
+
+    params.require(:post).permit(:title, :body, :category_id)
   end
 end
