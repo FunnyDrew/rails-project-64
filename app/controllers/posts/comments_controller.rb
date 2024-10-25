@@ -6,6 +6,7 @@ class Posts::CommentsController < Posts::ApplicationController
 		#debugger
 
 		if post_comment_params[:parent_id]
+		
 
 			@comment = resource_post
 						.comments
