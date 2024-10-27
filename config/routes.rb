@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :posts,only: [:new, :create, :show] do
     scope module: :posts do
       resources :comments, shallow: true
+      resources :likes, shallow: true
     end
   end
   # Defines the root path route ("/")

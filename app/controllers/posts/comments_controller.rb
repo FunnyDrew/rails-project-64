@@ -16,6 +16,8 @@ class Posts::CommentsController < Posts::ApplicationController
 			@comment = resource_post.comments.build(post_comment_params)
 		end
 
+		@comment.user = current_user
+
 		if @comment.save
 			redirect_to @post, notice: 'Comment was successfully created.'
 		else
