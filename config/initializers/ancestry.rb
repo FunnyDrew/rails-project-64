@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # config/initializers/ancestry.rb
 
 # use the newer format

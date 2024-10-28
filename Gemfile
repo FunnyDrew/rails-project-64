@@ -63,6 +63,8 @@ group :development, :test do
 
   gem 'rubocop-rails', require: false
 
+  gem 'rubocop-performance'
+
   gem 'slim_lint'
 
   # Use sqlite3 as the database for Active Record

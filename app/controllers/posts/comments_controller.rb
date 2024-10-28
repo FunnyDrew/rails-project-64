@@ -1,35 +1,33 @@
+# frozen_string_literal: true
+
 class Posts::CommentsController < Posts::ApplicationController
+  def create
+    @post = resource_post
+    # debugger
 
-	def create
+    @comment = if post_comment_params[:parent_id]
 
-		@post = resource_post
-		#debugger
+                 resource_post
+                   .comments
+                   .children_of(post_comment_params[:parent_id])
+                   .build(post_comment_params)
+               else
+                 resource_post.comments.build(post_comment_params)
+               end
 
-		if post_comment_params[:parent_id]
-		
+    @comment.user = current_user
 
-			@comment = resource_post
-						.comments
-						.children_of(post_comment_params[:parent_id])
-						.build(post_comment_params)
-		else
-			@comment = resource_post.comments.build(post_comment_params)
-		end
+    if @comment.save
+      redirect_to @post, notice: 'Comment was successfully created.'
+    else
+      redirect_to @post, status: :unprocessable_entity, notice: 'Comment not created'
+    end
+  end
 
-		@comment.user = current_user
+  private
 
-		if @comment.save
-			redirect_to @post, notice: 'Comment was successfully created.'
-		else
-			redirect_to @post, status: :unprocessable_entity, notice: 'Comment not created'
-		end
-	end
-
-	private
-
-	def post_comment_params
-		#debugger
-		params.require(:post_comment).permit(:content, :parent_id)
-	end
-
+  def post_comment_params
+    # debugger
+    params.require(:post_comment).permit(:content, :parent_id)
+  end
 end
