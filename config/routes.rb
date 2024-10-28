@@ -12,19 +12,13 @@ Rails.application.routes.draw do
   resources :posts, only: [:new, :create, :show] do
     scope module: :posts do
       resources :comments
-      resources :likes, only: :destroy      
+      resources :likes, only: [:create, :destroy]      
     end
   end
 
-  scope module: :posts do
-    resources :likes, only: :create    
-  end
-  
-
-  
-
-
-  
+  #scope module: :posts do
+  #  resources :likes, only: :create    
+  #end  
 
   # Defines the root path route ("/")
   # root "posts#index"
