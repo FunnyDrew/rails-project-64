@@ -7,17 +7,17 @@ hr
 	/- debugger
 	- if @post.post_likes.where(user: @current_user).empty?
 		/-debugger
-		= link_to 'Like', post_like_path(@post), data: { turbo_method: :create }
+		= link_to 'Like', likes_path, data: { turbo_method: :create }
 	- else
-		= link_to 'Dislike', like_path, data: {'turbo-method': :delete}
+		= link_to 'Dislike', post_like_path(@post), data: {'turbo-method': :delete}
 hr
-/= simple_form_for @post.comments.new, method: :post,  url: post_comments_path(@post) do |c|
-/	=c.input :content
-/	=c.submit
-/-get_hi
+= simple_form_for @post.comments.new, method: :post,  url: post_comments_path(@post) do |c|
+	=c.input :content
+	=c.submit
+
 hr
 /-debugger
-/- @post.comments.where.not(id: nil).where(ancestry: "/").order(created_at: :desc).each do |comment|
+- @post.comments.where.not(id: nil).where(ancestry: "/").order(created_at: :desc).each do |comment|
 	//-debugger
 	
-/	= render partial: "posts/comments/comment", locals: { comment: comment }
+	= render partial: "posts/comments/comment", locals: { comment: comment }

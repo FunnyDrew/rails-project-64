@@ -1,5 +1,6 @@
 class Posts::LikesController < ApplicationController
 	def create
+		debugger
 		
 		@post_like = PostLike.new
 		@post = Post.find(params[:post_id])
@@ -16,11 +17,9 @@ class Posts::LikesController < ApplicationController
 	end
 
 	def destroy
-		@post = Post.find(params[:id])
-
-		@post_like = PostLike.where(post:params[:id], user: current_user)
-		#debugger
-		@post_like.destroy_all
+		@post = Post.find(params[:post_id])
+		@post_like = @post.post_likes.find_by(user_id: current_user.id)
+		@post_like.destroy
 		redirect_to @post
 	end
 
