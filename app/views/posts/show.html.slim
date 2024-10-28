@@ -3,9 +3,9 @@ h1.mt-5
 .mt-3
 	= @post.body
 hr 
-	h3 = "Likes: #{@post.post_likes.count}"
+	h3 = "Likes: #{@post.likes.count}"
 	/- debugger
-	- if @post.post_likes.where(user: @current_user).empty?
+	- if @post.likes.where(user: @current_user).empty?
 		/-debugger
 		= link_to 'Like', post_likes_path(@post), data: { turbo_method: :create }
 	- else
