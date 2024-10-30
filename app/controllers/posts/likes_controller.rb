@@ -4,7 +4,7 @@ class Posts::LikesController < ApplicationController
   def create
     # debugger
 
-    @like = PostLike.new
+    @like = Post::Like.new
     @post = Post.find(params[:post_id])
 
     @like.post = @post
