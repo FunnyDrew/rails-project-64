@@ -1,0 +1,7 @@
+ru:
+  layouts:
+    shared:
+      navbar:
+        sign_out: Выйти
+        sign_up: Зарегестрироваться
+        sign_in: Войти

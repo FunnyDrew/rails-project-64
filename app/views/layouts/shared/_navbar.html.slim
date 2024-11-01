@@ -11,14 +11,17 @@ nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
       = current_user.email
 
       li.nav-item.active.ml-4
-        = link_to 'Sign_out', destroy_user_session_path, data: { turbo_method: :delete }
+        = link_to destroy_user_session_path, data: { turbo_method: :delete } do
+         = t('.sign_out')
 
     -else
       li.nav-item.active.ml-4
-        = link_to 'Sign_in', new_user_session_path
+        = link_to new_user_session_path do
+          = t '.sign_in'
 
       li.nav-item.active.ml-4
-        = link_to 'Sign_up', new_user_registration_path
+        = link_to new_user_registration_path do
+          = t '.sign_up'
      
 
 
