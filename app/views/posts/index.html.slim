@@ -1,7 +1,7 @@
 .container
 	- content_for :title
 		h1.mt-5
-			| Posts
+			= t '.title'
 	.row
 		- @posts.each do |post|
 			.col-md-12

@@ -1,7 +1,4 @@
----
 ru:
-	posts:
-		index:
-			sign_in: Войти
-			sigm_up: Зарегестрироваться
-			sign_out: Выйти
+  posts:
+    index:
+      title: Посты 
