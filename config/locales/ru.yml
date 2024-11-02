@@ -1,2 +1,8 @@
 ru:
+  helpers:
+    submit:
+      post:
+        create: Создать Пост
+      post_comment:
+        create: Добавить комментарий
   

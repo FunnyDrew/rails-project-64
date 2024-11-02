@@ -1,4 +1,8 @@
 ru:
   posts:
     index:
-      title: Посты 
+      title: Посты
+    new:
+      title: Новый Пост
+    show:
+      title: Пост
