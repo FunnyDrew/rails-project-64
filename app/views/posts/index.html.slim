@@ -1,17 +1,17 @@
 .container
-	- content_for :title
-		h1.mt-5
-			= t '.title'
-	.row
-		- @posts.each do |post|
-			.col-md-12
-				.card.mb-3
-					.card-body
-						h5.card-title
-							= link_to post.title, post_path(post)
-						.card-text.mb2
-							= post.body
-						.text-right.small.text-muted.mt-auto
-							= 'Hi'
-	-if user_signed_in?
-		= link_to 'New Post', new_post_path
+  - content_for :title
+    h1.mt-5
+      = t '.title'
+  .row
+    - @posts.each do |post|
+       .col-md-12
+        .card.mb-3
+          .card-body
+            h5.card-title
+              = link_to post.title, post_path(post)
+            .card-text.mb2
+              = post.body
+            .text-right.small.text-muted.mt-auto
+              = 'Hi'
+  -if user_signed_in?
+    = link_to 'New Post', new_post_path

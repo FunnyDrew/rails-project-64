@@ -1,17 +1,17 @@
 .card.border-success.mb-3
-	.card-header.bg-transparent.border-success
-		| Header
-	.card-body.text-success
-		p.card-text
-			/-debugger
-			=comment.content
-			= render partial: 'posts/comments/comment', collection: comment.children
-			-comment_id = comment.id
-	.card-footer.bg-transparent.border-success
-		= link_to 'Link with href', "\##{comment.id}", data: { 'bs-toggle': 'collapse' }, aria: { controls: "#{comment.id}"}
-		.div.collapse [id="#{ comment.id }"]
-			.div.card.card-body
-	    = simple_form_for comment.children.new, method: :post, url: post_comments_path(@post) do |c|
-	        =c.input :content
-	        =c.hidden_field :parent_id, value: comment_id
-	        =c.submit
+  .card-header.bg-transparent.border-success
+    | Header
+  .card-body.text-success
+    p.card-text
+      /-debugger
+      =comment.content
+      = render partial: 'posts/comments/comment', collection: comment.children
+      -comment_id = comment.id
+  .card-footer.bg-transparent.border-success
+    = link_to 'Link with href', "##{comment.id}", data: { 'bs-toggle': 'collapse' }, aria: { controls: comment.id.to_s }
+    .div.collapse [id="#{comment.id}"]
+      .div.card.card-body
+      = simple_form_for comment.children.new, method: :post, url: post_comments_path(@post) do |c|
+          =c.input :content
+          =c.hidden_field :parent_id, value: comment_id
+          =c.submit
