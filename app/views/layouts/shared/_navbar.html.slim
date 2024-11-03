@@ -1,8 +1,8 @@
 nav.navbar.navbar-expand-md.navbar-light.fixed-top.bg-dark
-    a.navbar-brand[href="#"]
+    a.navbar-brand[href='#']
       | BLOGERUS
-    button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" 
-    aria-expanded="false" aria-label="Toggle navigation"]
+    button.navbar-toggler[type='button' data-toggle='collapse' data-target='#navbarCollapse' aria-controls='navbarCollapse'
+    aria-expanded='false' aria-label='Toggle navigation']
 
     ul.navbar-nav.mr-auto
 
@@ -26,6 +26,3 @@ nav.navbar.navbar-expand-md.navbar-light.fixed-top.bg-dark
       li.nav-item.active.ml-4
         = link_to new_user_registration_path do
           = t '.sign_up'
-     
-
-

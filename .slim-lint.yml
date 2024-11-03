@@ -8,3 +8,6 @@ linters:
   
   LineLength:
     max: 180
+
+  Tab:
+    enabled: false

@@ -2,7 +2,7 @@
 	- content_for :title
 		h1.mt-5
 			= t '.title'
-	== simple_form_for  @post do |p|
+	== simple_form_for @post do |p|
 			=p.input :title
 			=p.association :category
 			=p.input :body

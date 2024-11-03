@@ -1,27 +1,24 @@
 .container
-	- content_for :title
-		h1.mt-5
-			= t '.title'
-	h1.mt-5
-		= @post.title
-	.mt-3
-		= @post.body
-	hr 
-		h3 = "Likes: #{@post.likes.count}"
-		/- debugger
-		- if @post.likes.where(user: @current_user).empty?
-			/-debugger
-			= link_to 'Like', post_likes_path(@post), data: { turbo_method: :create }
-		- else
-			= link_to 'Dislike', post_like_path(@post), data: {'turbo-method': :delete}
-	hr
-	= simple_form_for @post.comments.new, method: :post,  url: post_comments_path(@post) do |c|
-		=c.input :content
-		=c.submit
+  - content_for :title
+    h1.mt-5
+      = t '.title'
+  h1.mt-5
+    = @post.title
+  .mt-3
+    = @post.body
+  hr
+    h3 = "Likes: #{@post.likes.count}"
+    - if @post.likes.where(user: @current_user).empty?
+      /-debugger
+      = link_to 'Like', post_likes_path(@post), data: { turbo_method: :create }
+    - else
+      = link_to 'Dislike', post_like_path(@post), data: { turbo-method: :delete }
+  hr
+  = simple_form_for @post.comments.new, method: :post, url: post_comments_path(@post) do |c|
+    =c.input :content
+    =c.submit
 
-	hr
-	/-debugger
-	- @post.comments.where.not(id: nil).where(ancestry: "/").order(created_at: :desc).each do |comment|
-		//-debugger
-		
-		= render partial: "posts/comments/comment", locals: { comment: comment }
+  hr
+  /-debugger
+  - @post.comments.where.not(id: nil).where(ancestry: '/').order(created_at: :desc).each do |comment|
+     = render partial: 'posts/comments/comment', locals: { comment: }

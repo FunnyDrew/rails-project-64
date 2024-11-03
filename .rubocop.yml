@@ -20,7 +20,7 @@ AllCops:
 
 Rails:
   Enabled: true
-
+  
 Style/ClassAndModuleChildren:
   Enabled: false
 
