@@ -11,9 +11,9 @@ class Posts::LikesController < ApplicationController
 
     @like.user = current_user
     if @like.save
-      redirect_to @post, notice: 'Post Liked'
+      redirect_to @post
     else
-      redirect_to @post, status: :unprocessable_entity, notice: 'Have a problem with post like'
+      redirect_to @post, status: :unprocessable_entity
     end
   end
 

@@ -7,11 +7,11 @@ AllCops:
   TargetRailsVersion: 7
   DisplayCopNames: true
   Exclude:
-    - 'code/bin/**'
-    - 'code/db/schema.rb'
-    - 'code/db/migrate/**'
-    - 'code/db/data_schema.rb'
-    - 'code/vendor/**/*'
+    - 'bin/**'
+    - 'db/schema.rb'
+    - 'db/migrate/**'
+    - 'db/data_schema.rb'
+    - 'vendor/**/*'
     - 'code/node_modules/**/*'
     - 'vendor/**/*'
     - 'node_modules/**/*'

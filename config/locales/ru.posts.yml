@@ -6,3 +6,9 @@ ru:
       title: Новый Пост
     show:
       title: Пост
+    create:
+      success: Пост создан
+    update:
+      success: Пост изменен
+    destroy:
+      success: Пост разрушен :)

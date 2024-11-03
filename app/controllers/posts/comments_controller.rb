@@ -18,9 +18,9 @@ class Posts::CommentsController < Posts::ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to @post, notice: 'Comment was successfully created.'
+      redirect_to @post
     else
-      redirect_to @post, status: :unprocessable_entity, notice: 'Comment not created'
+      redirect_to @post, status: :unprocessable_entity
     end
   end
 
