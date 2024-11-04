@@ -12,6 +12,13 @@
             .card-text.mb2
               = post.body
             .text-right.small.text-muted.mt-auto
-              = 'Hi'
+              span.me-2
+                = post.likes.count
+              span.me-2
+                = post.creator.email
+              span.me-2
+                = post.created_at - Time.now
+              span.me-2
+                = post.say_hay
   -if user_signed_in?
-    = link_to 'New Post', new_post_path
+    = link_to 'New Post', new_post_path, class: 'btn btn-primary'

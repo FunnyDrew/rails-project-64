@@ -11,3 +11,9 @@ two:
   body: Post two content
   category: two
   creator: two
+
+unliked_post:
+  title: Unliked_Post
+  body: Text of unliked Post
+  category: two
+  creator: one
