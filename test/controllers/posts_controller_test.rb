@@ -44,7 +44,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test 'creation post by unregistred user' do
     post posts_url, params: { post: @attrs }
-
     post = Post.find_by @attrs
     assert { !post }
     assert_redirected_to  post_url(post) 
