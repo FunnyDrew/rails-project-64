@@ -33,15 +33,20 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     post posts_url, params: { post: @attrs }
 
     post = Post.find_by @attrs
-    #debugger
-
     assert { post }
-    #debugger
     assert_redirected_to  post_url(post) 
   end
 
   test 'should show post' do
     get post_url(@post)
     assert_response :success
+  end
+
+  test 'creation post by unregistred user' do
+    post posts_url, params: { post: @attrs }
+
+    post = Post.find_by @attrs
+    assert { !post }
+    assert_redirected_to  post_url(post) 
   end
 end
