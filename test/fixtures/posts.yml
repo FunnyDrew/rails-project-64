@@ -17,3 +17,9 @@ unliked_post:
   body: Text of unliked Post
   category: two
   creator: one
+
+post_liked_by_user_one:
+  title: Post Liked by User one
+  body: Text of Liked post
+  category: one
+  creator: two

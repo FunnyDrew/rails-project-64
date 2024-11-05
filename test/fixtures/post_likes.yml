@@ -8,6 +8,7 @@ two:
   user: two
   post: two
 
-liked_post_two_by_one:
+liked_post_by_one:
   user: one
-  post: two
+  post: post_liked_by_user_one
+

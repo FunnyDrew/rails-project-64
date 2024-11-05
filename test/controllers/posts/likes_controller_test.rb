@@ -4,7 +4,7 @@ require 'test_helper'
 
 class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
-  
+
   # test "the truth" do
   #   assert true
   # end
@@ -19,27 +19,20 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
 
   test 'delete Like by Liker' do
     @user = users(:one)
-    @post = posts(:liked_post_two_by_one)
+    @post = posts(:post_liked_by_user_one)
     sign_in @user
     assert_difference("@post.likes.count", -1) do
-      destroy post_like_url @post
+      delete post_like_url @post, @user
     end
   end
 
-  test 'delete Like by by other user' do
+  test 'delete Like by other user' do
     @user = users(:two)
-    @post = posts(:liked_post_two_by_one)
+    @post = posts(:post_liked_by_user_one)
     sign_in @user
     assert_difference("@post.likes.count", 0) do
-      destroy post_like_url @post
+      delete post_like_url @post, @user
     end
   end
 
-  test 'delete Like by by other user' do
-    @post = posts(:liked_post_two_by_one)
-    assert_difference("@post.likes.count", 0) do
-    destroy post_like_url @post
-  end
-
-  end
 end

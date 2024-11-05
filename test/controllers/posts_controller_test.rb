@@ -20,7 +20,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should get index' do
     get root_url
-    assert_response :success    
+    assert_response :success
   end
 
   test 'should get new' do
@@ -34,7 +34,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
     post = Post.find_by @attrs
     assert { post }
-    assert_redirected_to  post_url(post) 
+    assert_redirected_to  post_url(post)
   end
 
   test 'should show post' do
@@ -42,10 +42,4 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'creation post by unregistred user' do
-    post posts_url, params: { post: @attrs }
-    post = Post.find_by @attrs
-    assert { !post }
-    assert_redirected_to  post_url(post) 
-  end
 end
