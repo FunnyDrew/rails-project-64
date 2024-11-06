@@ -23,3 +23,9 @@ post_liked_by_user_one:
   body: Text of Liked post
   category: one
   creator: two
+
+post_without_comment:
+  title: Post without comments
+  body: It's a post without comments
+  category: two
+  creator: one
