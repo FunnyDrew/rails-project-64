@@ -3,7 +3,7 @@
 require 'test_helper'
 
 class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
-  include Devise::Test::IntegrationHelpers 
+  include Devise::Test::IntegrationHelpers
 
   setup do
     @user = users(:one)
@@ -14,17 +14,17 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     }
     sign_in @user
   end
-  
+
   test 'create comment by registred user' do
     assert_difference("@post.comments.count", 1) do
-      #debugger
       post post_comments_url  @post, params: {post_comment: @attrs}
     end
-    #assert{true}
+debugger
+    assert{@post.comments.first.ancestry == '/'}
   end
 
   test 'create subcomment' do
-    
+
   end
 
 end
