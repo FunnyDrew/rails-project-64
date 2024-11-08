@@ -7,6 +7,7 @@
     h3 = "Likes: #{@post.likes.count}"
     - if @post.likes.where(user: @current_user).empty?
       /-debugger
+      /i.bi.bi-arrow-through-heart
       = link_to 'Like', post_likes_path(@post), data: { turbo_method: :create }
     - else
       = link_to 'Dislike', post_like_path(@post), data: { turbo_method: :delete }
