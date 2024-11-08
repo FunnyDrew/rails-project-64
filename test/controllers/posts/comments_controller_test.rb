@@ -26,15 +26,18 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     @post = posts(:two)
 
     @comment = post_comments(:deep_nested)
+    #debugger
+    @bums = @attrs.merge parent_id: @comment.id
+ 
     
     assert_difference("@post.comments.count", 1) do
-      post post_comments_url @post, params: {post_comment: @attrs.merge{parent_id: @comment.id}
+      post post_comments_url @post, params: {post_comment: @bums}
     end
     comment = PostComment.find_by @attrs
     #debugger
 
     assert{comment}
-    assert{comment.ancestry == @comment.parent_id}
+    assert{comment.ancestry == @comment.ancestry}
   end
 
 end
