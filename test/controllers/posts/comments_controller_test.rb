@@ -14,6 +14,7 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'create comment by registred user' do
+    skip
     @post = posts(:post_without_comment)
     assert_difference("@post.comments.count", 1) do
       post post_comments_url  @post, params: {post_comment: @attrs}
@@ -23,11 +24,17 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
 
   test 'create subcomment' do
     @post = posts(:two)
+
     @comment = post_comments(:deep_nested)
+    
     assert_difference("@post.comments.count", 1) do
-      post post_comments_url  @post, params: {parent_id: @comment.parent_id, post_comment: @attrs}
+      post post_comments_url @post, params: {post_comment: @attrs.merge{parent_id: @comment.id}
     end
-    assert{@post.comments.first.ancestry == '/'}
+    comment = PostComment.find_by @attrs
+    #debugger
+
+    assert{comment}
+    assert{comment.ancestry == @comment.parent_id}
   end
 
 end

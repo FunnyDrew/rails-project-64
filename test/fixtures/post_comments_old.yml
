@@ -1,0 +1,30 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+comment_one:
+  id: 1
+  content: Comment to post One
+  user: one
+  post: one
+  ancestry: /
+
+comment_two:
+  id: 2
+  content: Comment to post Two
+  user: one
+  post: two
+  ancestry: /
+
+nested:
+  id: 3
+  content: Nested comment to post two
+  user: two
+  post: two
+  ancestry: /2/
+
+deep_nested:
+  id: 4
+  content: Deep nested comment to post two
+  user: one
+  post: two
+  ancestry: /2/3/
+
+
