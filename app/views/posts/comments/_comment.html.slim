@@ -1,6 +1,6 @@
 .card.border-success.mb-3
   .card-header.bg-transparent.border-success
-    | Header
+    = l(comment.created_at, format: :short)
   .card-body.text-success
     p.card-text
       /-debugger
@@ -9,10 +9,11 @@
       -comment_id = comment.id
   .card-footer.bg-transparent.border-success
     - if user_signed_in?
-      = link_to 'Link with href', "##{comment.id}", data: { 'bs-toggle': 'collapse' }, aria: { controls: comment.id.to_s }
+      = link_to "##{comment.id}", data: { 'bs-toggle': 'collapse' }, aria: { controls: comment.id.to_s } do
+        =t('.answer')
       .div.collapse [id="#{comment.id}"]
         .div.card.card-body
           = simple_form_for comment.children.new, method: :post, url: post_comments_path(@post) do |c|
             =c.input :content
             =c.hidden_field :parent_id, value: comment_id
-            =c.submit
+            =c.button :submit, class: 'btn btn-warning'
