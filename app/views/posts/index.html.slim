@@ -13,12 +13,10 @@
               = post.body
             .text-right.small.text-muted.mt-auto
               span.me-2
-                = post.likes.count
+                = t('.liked',count: post.likes.count)
               span.me-2
-                = post.creator.email
+                = t('.author',name: post.creator.email)
               span.me-2
-                = post.created_at - Time.now
-              span.me-2
-                = post.say_hay
+                = t('.created', time_ago: (distance_of_time_in_words post.created_at, Time.now))
   -if user_signed_in?
     = link_to 'New Post', new_post_path, class: 'btn btn-primary'

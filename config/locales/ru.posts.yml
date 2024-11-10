@@ -2,6 +2,14 @@ ru:
   posts:
     index:
       title: Бурлаки на Блоге
+      liked:
+        zero: Пока не оценили
+        one: Понравилось одному пользователю
+        few: Понравилось %{count} пользователям
+        many: Понравилось %{count} пользователям
+        other: Понравилось %{count} пользователям
+      created: "Создан: %{time_ago}"
+      author: "Автор: %{name}"
     new:
       title: Новый Пост
     show:

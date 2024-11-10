@@ -1,4 +1,36 @@
 ru:
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: около часа назад
+        few: около %{count} часов назад
+        many: около %{count} часов назад
+        other: около %{count} часов назад
+      about_x_months:
+        one: около %{count} месяца тому назад
+        few: около %{count} месяцев тому назад
+        many: около %{count} месяцев ому назад
+        other: около %{count} месяцев ому назад
+      x_days:
+        one: день назад
+        few: около %{count}х дней назад
+        many: около %{count} дней тому назад
+        other: около %{count} дней тому назад
+      about_x_years:
+        one: около %{count} года
+        few: около %{count} лет
+        many: около %{count} лет
+        other: около %{count} лет
+      almost_x_years:
+        one: почти год назад
+        few: почти %{count} года
+        many: почти %{count} лет
+        other: почти %{count} лет
+      x_minutes:
+        one: около минуты назад
+        few: около %{count} минут назад
+        many: около %{count} минут назад
+        other: около %{count} минут назад
   helpers:
     submit:
       post:

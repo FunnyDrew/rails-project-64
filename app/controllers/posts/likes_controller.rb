@@ -10,6 +10,7 @@ class Posts::LikesController < ApplicationController
     @like.post = @post
 
     @like.user = current_user
+    #debugger
     if @like.save
       redirect_to @post
     else
