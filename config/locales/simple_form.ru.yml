@@ -26,6 +26,11 @@ ru:
     submit:
       post:
         create: создать пост
+    hints:
+      post:
+        body: В пределах 255...1000 знаков
+        category: Обязательно выберите категорию
+        title: В пределах 5...255 знаков
     #     password: 'Password'
     #   user:
     #     new:

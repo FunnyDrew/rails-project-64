@@ -5,10 +5,8 @@ class Post < ApplicationRecord
   has_many :likes, class_name: 'PostLike', dependent: :destroy
   belongs_to :category
   belongs_to :creator, class_name: 'User'
-  validates :title, length: {in: 2..5, to_shot: i18n.t('.what'),
-    too_long: t('.plums')}
-  validates :body, length: {in: 2..5, to_shot: t('.what'),
-    too_long: t('.plums')}
+  validates :title, length: {in: 5..255}
+  validates :body, length: {in: 100..1000}
 
 end
 #title 5-255
