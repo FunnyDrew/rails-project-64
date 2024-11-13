@@ -7,7 +7,7 @@
       ul.nav.nav-pills.flex-grow-1.navbar-nav
         -if user_signed_in?
           li.nav-link.disable.ml-4
-            = current_user.email
+            = link_to current_user.email.to_s, user_path(current_user)
 
           li.nav-item.ml-4
            = link_to new_post_path, class: 'nav-link link-dark'

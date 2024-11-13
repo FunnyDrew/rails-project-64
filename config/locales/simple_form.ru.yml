@@ -17,6 +17,11 @@ ru:
           title: Название
           body: Содержание
           category: Категория
+      user:
+        new:
+          email: Электронная почта
+          password: Придумайте пароль
+          password_confirmation: Подтвердите пароль
     user:
       new:
 
@@ -39,81 +44,7 @@ ru:
         title: В пределах 5...255 знаков
       user:
         email: Введите вашу электронную почту
+        password: Введите пароль...не менее 6 символов
+        password_confirmation: Повторите пароль, введенный в окне выше
 
 
-[i18n-debug] ru.simple_form.placeholders.defaults.new.email => nil
-[i18n-debug] ru.simple_form.placeholders.defaults.email => nil
-[i18n-debug] ru.simple_form.labels.user.new.email => nil
-[i18n-debug] ru.simple_form.labels.user.email => nil
-[i18n-debug] ru.simple_form.labels.defaults.new.email => nil
-[i18n-debug] ru.simple_form.labels.defaults.email => nil
-[i18n-debug] ru.activerecord.attributes.user.email => nil
-[i18n-debug] ru.attributes.email => nil
-[i18n-debug] ru.simple_form.hints.user.new.email => nil
-[i18n-debug] ru.simple_form.hints.user.email => nil
-[i18n-debug] ru.simple_form.hints.defaults.new.email => nil
-[i18n-debug] ru.simple_form.hints.defaults.email => nil
-[i18n-debug] ru.simple_form.placeholders.user.new.password => nil
-[i18n-debug] ru.simple_form.placeholders.user.password => nil
-[i18n-debug] ru.simple_form.placeholders.defaults.new.password => nil
-[i18n-debug] ru.simple_form.placeholders.defaults.password => nil
-[i18n-debug] ru.simple_form.labels.user.new.password => nil
-[i18n-debug] ru.simple_form.labels.user.password => nil
-[i18n-debug] ru.simple_form.labels.defaults.new.password => nil
-[i18n-debug] ru.simple_form.labels.defaults.password => nil
-[i18n-debug] ru.activerecord.attributes.user.password => nil
-[i18n-debug] ru.attributes.password => nil
-[i18n-debug] ru.simple_form.hints.user.new.password => nil
-[i18n-debug] ru.simple_form.hints.user.password => nil
-[i18n-debug] ru.simple_form.hints.defaults.new.password => nil
-[i18n-debug] ru.simple_form.hints.defaults.password => nil
-[i18n-debug] ru.simple_form.placeholders.user.new.password_confirmation => nil
-[i18n-debug] ru.simple_form.placeholders.user.password_confirmation => nil
-[i18n-debug] ru.simple_form.placeholders.defaults.new.password_confirmation => nil
-[i18n-debug] ru.simple_form.placeholders.defaults.password_confirmation => nil
-[i18n-debug] ru.simple_form.labels.user.new.password_confirmation => nil
-[i18n-debug] ru.simple_form.labels.user.password_confirmation => nil
-[i18n-debug] ru.simple_form.labels.defaults.new.password_confirmation => nil
-[i18n-debug] ru.simple_form.labels.defaults.password_confirmation => nil
-[i18n-debug] ru.activerecord.attributes.user.password_confirmation => nil
-[i18n-debug] ru.attributes.password_confirmation => nil
-[i18n-debug] ru.simple_form.hints.user.new.password_c
-
-    #     password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail to sign in.'
-    #     edit:
-    #       email: 'E-mail.'
-    # hints:
-    #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
-    # include_blanks:
-    #   defaults:
-    #     age: 'Rather not say'
-    # prompts:
-    #   defaults:
-    #     age: 'Select your age'
-  #[i18n-debug] ru.simple_form.hints.post.new.category => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.hints.post.category => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.hints.defaults.new.category => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.hints.defaults.category => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.placeholders.post.new.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.placeholders.post.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.placeholders.defaults.new.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.placeholders.defaults.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.labels.post.new.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.labels.post.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.labels.defaults.new.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.labels.defaults.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.activerecord.attributes.post.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.attributes.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.hints.post.new.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.hints.post.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.hints.defaults.new.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.simple_form.hints.defaults.body => nil
-#22:43:42 web.1  | [i18n-debug] ru.activerecord.models.post => nil
-#22:43:42 web.1  | [i18n-debug] ru.helpers.submit.post.create => nil
-#22:43:42 web.1  | [i18n-debug] ru.helpers.submit.create => "Создать %{model}"
-#22:43:42 web.1  |   Rendered posts/new.html.slim within layouts/application (Duration: 9.6ms | Allocations: 5254)

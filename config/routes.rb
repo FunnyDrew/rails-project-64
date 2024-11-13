@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
   devise_for :users
   # Define your applicaStion routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
       resources :likes, only: %i[create destroy]
     end
   end
+
+  resources :users, only: [:show]
 
   # scope module: :posts do
   #  resources :likes, only: :create

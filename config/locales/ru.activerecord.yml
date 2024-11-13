@@ -5,6 +5,7 @@ ru:
         one: Пост
       user:
         one: Пользователь
+
       post/comment: Комментарий
     attributes:
       post:
@@ -12,6 +13,10 @@ ru:
         body: Содержание
       category:
         name: Категория
+      user:
+        email: Почта
+        password: Пароль
+        password_confirmation: Подтверждение пароля
     errors:
       models:
         post:
