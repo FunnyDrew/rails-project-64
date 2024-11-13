@@ -17,12 +17,18 @@ ru:
           title: Название
           body: Содержание
           category: Категория
+    user:
+      new:
+
     placeholders:
       post:
         new:
           body: Начните свой шедевр
           title: Придумайте Название
           category: В какой вы хотели бы развить свою мысль?
+      user:
+        new:
+          email: example@email.ru
     submit:
       post:
         create: создать пост
@@ -31,6 +37,48 @@ ru:
         body: В пределах 255...1000 знаков
         category: Обязательно выберите категорию
         title: В пределах 5...255 знаков
+      user:
+        email: Введите вашу электронную почту
+
+
+[i18n-debug] ru.simple_form.placeholders.defaults.new.email => nil
+[i18n-debug] ru.simple_form.placeholders.defaults.email => nil
+[i18n-debug] ru.simple_form.labels.user.new.email => nil
+[i18n-debug] ru.simple_form.labels.user.email => nil
+[i18n-debug] ru.simple_form.labels.defaults.new.email => nil
+[i18n-debug] ru.simple_form.labels.defaults.email => nil
+[i18n-debug] ru.activerecord.attributes.user.email => nil
+[i18n-debug] ru.attributes.email => nil
+[i18n-debug] ru.simple_form.hints.user.new.email => nil
+[i18n-debug] ru.simple_form.hints.user.email => nil
+[i18n-debug] ru.simple_form.hints.defaults.new.email => nil
+[i18n-debug] ru.simple_form.hints.defaults.email => nil
+[i18n-debug] ru.simple_form.placeholders.user.new.password => nil
+[i18n-debug] ru.simple_form.placeholders.user.password => nil
+[i18n-debug] ru.simple_form.placeholders.defaults.new.password => nil
+[i18n-debug] ru.simple_form.placeholders.defaults.password => nil
+[i18n-debug] ru.simple_form.labels.user.new.password => nil
+[i18n-debug] ru.simple_form.labels.user.password => nil
+[i18n-debug] ru.simple_form.labels.defaults.new.password => nil
+[i18n-debug] ru.simple_form.labels.defaults.password => nil
+[i18n-debug] ru.activerecord.attributes.user.password => nil
+[i18n-debug] ru.attributes.password => nil
+[i18n-debug] ru.simple_form.hints.user.new.password => nil
+[i18n-debug] ru.simple_form.hints.user.password => nil
+[i18n-debug] ru.simple_form.hints.defaults.new.password => nil
+[i18n-debug] ru.simple_form.hints.defaults.password => nil
+[i18n-debug] ru.simple_form.placeholders.user.new.password_confirmation => nil
+[i18n-debug] ru.simple_form.placeholders.user.password_confirmation => nil
+[i18n-debug] ru.simple_form.placeholders.defaults.new.password_confirmation => nil
+[i18n-debug] ru.simple_form.placeholders.defaults.password_confirmation => nil
+[i18n-debug] ru.simple_form.labels.user.new.password_confirmation => nil
+[i18n-debug] ru.simple_form.labels.user.password_confirmation => nil
+[i18n-debug] ru.simple_form.labels.defaults.new.password_confirmation => nil
+[i18n-debug] ru.simple_form.labels.defaults.password_confirmation => nil
+[i18n-debug] ru.activerecord.attributes.user.password_confirmation => nil
+[i18n-debug] ru.attributes.password_confirmation => nil
+[i18n-debug] ru.simple_form.hints.user.new.password_c
+
     #     password: 'Password'
     #   user:
     #     new:

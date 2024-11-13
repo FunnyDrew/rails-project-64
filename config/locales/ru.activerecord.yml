@@ -3,7 +3,8 @@ ru:
     models:
       post:
         one: Пост
-      user: Пользователь
+      user:
+        one: Пользователь
       post/comment: Комментарий
     attributes:
       post:

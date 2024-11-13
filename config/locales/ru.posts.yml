@@ -13,6 +13,7 @@ ru:
         other: Понравилось %{count} пользователям
       created: "Создан: %{time_ago}"
       author: "Автор: %{name}"
+      new_post: Создать пост
     new:
       title: Новый Пост
     show:
