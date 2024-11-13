@@ -7,13 +7,39 @@
   h5 'Зарегестрирован'
   = @user.created_at
 
-  table.table.table-info.table-striped
+  table.table
     thead
       tr
         th[scope="col"]
-          ='#'
-        th[scope="col"]
-          ='#'
+          ='N'
+        th.text-center[scope="col"]
+          ='Статья'
+        th.text-center[scope="col"]
+          = 'Комментариев'
+        th.text-center[scope="col"]
+          = 'Понравилась'
+        th.text-center[scope="col"]
+          = 'Ссылки для работы'
+    tbody
+    - @user.posts.each_with_index do |post, index|        
+      tr
+        th[scope="rows"]
+          =index+1
+        td
+          = post.title
+        td.text-center
+          = post.comments.count.to_s
+        td.text-center        
+          = post.likes.count.to_s
+        td.text-center        
+          = link_to 'edit post', edit_post_path(post), class: 'me-3'
+          = link_to 'delete post', post_path(post), data: { turbo_method: :delete }
+
+
+
+
+
+
 
 
 

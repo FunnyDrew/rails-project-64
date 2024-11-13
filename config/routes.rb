@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  resources :posts, only: %i[new create show] do
+  resources :posts do
     scope module: :posts do
       resources :comments
       resources :likes, only: %i[create destroy]
