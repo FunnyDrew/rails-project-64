@@ -2,21 +2,21 @@
 
 class Posts::CommentsController < Posts::ApplicationController
   def create
-    #debugger
+    # debugger
     @post = resource_post
-     
+
     @comment = if post_comment_params[:parent_id]
 
-     resource_post
-       .comments
-       .children_of(post_comment_params[:parent_id])
-       .build(post_comment_params)
-     else
-       resource_post.comments.build(post_comment_params)
-     end
-     
+                 resource_post
+                   .comments
+                   .children_of(post_comment_params[:parent_id])
+                   .build(post_comment_params)
+               else
+                 resource_post.comments.build(post_comment_params)
+               end
+
     @comment.user = current_user
-    #debugger
+    # debugger
     if @comment.save
       redirect_to @post
     else

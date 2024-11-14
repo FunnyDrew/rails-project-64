@@ -1,4 +1,5 @@
+# frozen_string_literal: true
+
 module TextWorker
-  def sayHay
-  end
+  def say_hay; end
 end

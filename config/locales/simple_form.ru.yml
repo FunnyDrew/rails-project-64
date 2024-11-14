@@ -20,10 +20,8 @@ ru:
       user:
         new:
           email: Электронная почта
-          password: Придумайте пароль
+          password: Пароль
           password_confirmation: Подтвердите пароль
-    user:
-      new:
 
     placeholders:
       post:

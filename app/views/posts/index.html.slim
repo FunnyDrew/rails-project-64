@@ -13,11 +13,11 @@
               = post.body
             .text-right.small.text-muted.mt-auto
               span.me-2
-                = t('.liked',count: post.likes.count)
+                = t('.liked', count: post.likes.count)
               span.me-2
-                = t('.author',name: post.creator.email)
+                = t('.author', name: post.creator.email)
               span.me-2
-                = t('.created', time_ago: (distance_of_time_in_words post.created_at, Time.now))
+                = t('.created', time_ago: (distance_of_time_in_words post.created_at, Time.zone.now))
   -if user_signed_in?
     = link_to new_post_path, class: 'btn btn-primary mt-4' do
       - t('.new_post')

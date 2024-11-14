@@ -10,7 +10,7 @@ class Posts::LikesController < ApplicationController
     @like.post = @post
 
     @like.user = current_user
-    #debugger
+    # debugger
     if @like.save
       redirect_to @post
     else
@@ -22,7 +22,7 @@ class Posts::LikesController < ApplicationController
     @post = Post.find(params[:post_id])
     @post_like = @post.likes.find_by(user_id: current_user.id)
 
-    @post_like.destroy if @post_like
+    @post_like&.destroy
 
     redirect_to @post
   end

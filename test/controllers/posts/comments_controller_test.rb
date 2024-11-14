@@ -15,25 +15,24 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
 
   test 'create comment' do
     @post = posts(:post_without_comment)
-    assert_difference("@post.comments.count", 1) do
-      post post_comments_url  @post, params: {post_comment: @attrs}
+    assert_difference('@post.comments.count', 1) do
+      post post_comments_url @post, params: { post_comment: @attrs }
     end
-    assert{@post.comments.first.ancestry == '/'}
+    assert { @post.comments.first.ancestry == '/' }
   end
 
   test 'create subcomment' do
     @post = posts(:two)
     @comment = post_comments(:deep_nested)
 
-    assert_difference("@post.comments.count", 1) do
-      post post_comments_url @post, params: {post_comment: @attrs.merge(parent_id: @comment.id)}
+    assert_difference('@post.comments.count', 1) do
+      post post_comments_url @post, params: { post_comment: @attrs.merge(parent_id: @comment.id) }
     end
     triple_nested_comment = PostComment.find_by @attrs
 
-    assert{triple_nested_comment}
+    assert { triple_nested_comment }
     first = triple_nested_comment.ancestry
-    second = [@comment.ancestry, @comment.id,'/'].join
-    assert {first == second}
+    second = [@comment.ancestry, @comment.id, '/'].join
+    assert { first == second }
   end
-
 end

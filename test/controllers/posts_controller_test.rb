@@ -11,11 +11,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @category = categories(:one)
     @attrs = {
       title: Faker::Movies::Ghostbusters.character,
-      body: Faker::Movies::Ghostbusters.quote,
+      body: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
       creator: @user,
       category_id: @category.id
     }
-
   end
 
   test 'should get index' do
@@ -34,12 +33,11 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
     post = Post.find_by @attrs
     assert { post }
-    assert_redirected_to  post_url(post)
+    assert_redirected_to post_url(post)
   end
 
   test 'should show post' do
     get post_url(@post)
     assert_response :success
   end
-
 end

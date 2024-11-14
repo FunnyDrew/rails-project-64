@@ -12,7 +12,7 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
     @post = posts(:unliked_post)
     sign_in @user
-    assert_difference("@post.likes.count", 1) do
+    assert_difference('@post.likes.count', 1) do
       post post_likes_url @post
     end
   end
@@ -21,7 +21,7 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
     @post = posts(:post_liked_by_user_one)
     sign_in @user
-    assert_difference("@post.likes.count", -1) do
+    assert_difference('@post.likes.count', -1) do
       delete post_like_url @post, @user
     end
   end
@@ -30,9 +30,8 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
     @user = users(:two)
     @post = posts(:post_liked_by_user_one)
     sign_in @user
-    assert_difference("@post.likes.count", 0) do
+    assert_difference('@post.likes.count', 0) do
       delete post_like_url @post, @user
     end
   end
-
 end
