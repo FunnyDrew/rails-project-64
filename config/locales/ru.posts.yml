@@ -3,6 +3,8 @@ ru:
     comments:
       comment:
         answer: Есть что ответить...
+        author: 'Комментарий от %{author}, создан: %{time}'
+
     index:
       title: Бурлаки на Блоге
       liked:
@@ -20,6 +22,8 @@ ru:
       title: Пост
       link_to_all_posts: Все посты
       category_name: " / %{name}"
+      created: "Создан: %{time_ago}"
+      author: "Автор: %{name}"
     create:
       success: Пост создан
     update:

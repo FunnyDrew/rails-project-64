@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Post < ApplicationRecord
-  MAX_LENGTH_ON_INDEX_PAGE = 200
+  MAX_LENGTH_ON_INDEX_PAGE = 255
 
   has_many :comments, class_name: 'PostComment', dependent: :destroy
   has_many :likes, class_name: 'PostLike', dependent: :destroy
@@ -11,7 +11,6 @@ class Post < ApplicationRecord
   validates :body, length: { in: 100..1000 }
 
   def cut
-    "#{self.body.slice(0..MAX_LENGTH_ON_INDEX_PAGE)}..."
+    "#{body.slice(0..MAX_LENGTH_ON_INDEX_PAGE)}..."
   end
 end
-

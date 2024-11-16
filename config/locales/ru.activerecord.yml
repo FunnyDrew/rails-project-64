@@ -17,6 +17,8 @@ ru:
         email: Почта
         password: Пароль
         password_confirmation: Подтверждение пароля
+      post_comment:
+        content: Комментарий
     errors:
       models:
         post:

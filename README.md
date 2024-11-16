@@ -1,5 +1,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/FunnyDrew/rails-project-64/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/FunnyDrew/rails-project-64/actions)
 
+[!GitAction Status](https://github.com/FunnyDrew/rails-project-64/actions/workflows/main.yml/badge.svg)](https://github.com/FunnyDrew/rails-project-64/actions/workflows/main.yml)
+
 ### WebPage of project
-[burblog](https://rails-project-64-qitq.onrender.com)
+[Burblog](https://rails-project-64-qitq.onrender.com)

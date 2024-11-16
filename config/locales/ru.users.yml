@@ -2,3 +2,12 @@ ru:
   users:
     show:
       page_name: Статистика
+      author: 'Автор: %{author}'
+      registred_at: 'Зарегестрирован: %{time}'
+      table_number: №
+      posts: Статьи
+      comments: Комментариев
+      liked: Понравилось
+      links_to_work: Рабочие ссылки
+      edit_post: Редактировать
+      delete_post: Удалить

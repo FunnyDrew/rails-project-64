@@ -2,24 +2,23 @@
   h4
     = t('.page_name')
 
-  h5 'Пользоатель: '
-  = @user.email
-  h5 'Зарегестрирован'
-  = @user.created_at
+  h6.mb-3 = t('.author', author: @user.email)
+
+  h6.mb-3 = t('.registred_at', time: l(@user.created_at, format: :long))
 
   table.table
     thead
       tr
         th[scope='col']
-          ='N'
+          = t('.table_number')
         th.text-center[scope='col']
-          ='Статья'
+          = t('.posts')
         th.text-center[scope='col']
-          = 'Комментариев'
+          = t('.comments')
         th.text-center[scope='col']
-          = 'Понравилась'
+          = t('.liked')
         th.text-center[scope='col']
-          = 'Ссылки для работы'
+          = t('.links_to_work')
     tbody
     - @user.posts.each_with_index do |post, index|
       tr
@@ -32,5 +31,7 @@
         td.text-center
           = post.likes.count.to_s
         td.text-center
-          = link_to 'edit post', edit_post_path(post), class: 'me-3'
-          = link_to 'delete post', post_path(post), data: { turbo_method: :delete }
+          = link_to edit_post_path(post), class: 'me-3' do
+            = t('.edit_post')
+          = link_to post_path(post), data: { turbo_method: :delete } do
+            = t('.delete_post')

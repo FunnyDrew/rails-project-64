@@ -7,22 +7,26 @@
     h3
       = @post.title
     .mt-3
-      = @post.body
-      h5.card-footer
-        = t('posts.index.liked', count: @post.likes.count)
-        - if @post.likes.where(user: @current_user).empty?
-          /- debugger
-          = link_to post_likes_path(@post, authenticity_token: form_authenticity_token), data: { turbo_method: :create } do
-            i.bi.bi-arrow-through-heart.h4.ms-2
-        - else
-          = link_to post_like_path(@post), data: { turbo_method: :delete } do
-            i.bi.bi-arrow-through-heart-fill.h4.ms-2
+    .mb-5 = @post.body
+    .card-footer
+      .d-flex.justify-content-between
+        .d-flex
+            .me-5 = t('.author', name: @post.creator.email)
+            = t('.created', time_ago: (distance_of_time_in_words @post.created_at, Time.zone.now))
+        div
+          = t('posts.index.liked', count: @post.likes.count)
+          - if @post.likes.where(user: @current_user).empty?
+            = link_to post_likes_path(@post, authenticity_token: form_authenticity_token), data: { turbo_method: :create } do
+              i.bi.bi-arrow-through-heart.h5.ms-2
+          - else
+            = link_to post_like_path(@post), data: { turbo_method: :delete } do
+              i.bi.bi-arrow-through-heart-fill.h5.ms-2
+
     .card-footer
       - if user_signed_in?
         = simple_form_for @post.comments.new, method: :post, url: post_comments_path(@post) do |c|
           =c.input :content
           =c.button :submit, class: 'btn btn-warning'
 
-      /-debugger
       - @post.comments.where.not(id: nil).where(ancestry: '/').order(created_at: :desc).each do |comment|
          = render partial: 'posts/comments/comment', locals: { comment: }
