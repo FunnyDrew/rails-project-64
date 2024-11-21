@@ -1,9 +1,15 @@
 start:
 	bin/dev
 
-setup:
+setup: install db-prepare
+
+install:
 	bundle install
 	yarn install
+
+db-prepare:
+	bin/rails db:reset
+	bin/rails db:fixtures:load
 
 
 

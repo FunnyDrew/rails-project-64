@@ -43,4 +43,13 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
       post post_likes_url @post
     end
   end
+
+  test 'add like to post liked by other user' do
+    @user = users(:two)
+    @post = posts(:post_liked_by_user_one)
+    sign_in @user
+    assert_difference('@post.likes.count', 1) do
+      post post_likes_url @post
+    end
+  end
 end
