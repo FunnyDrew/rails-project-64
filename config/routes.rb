@@ -17,11 +17,4 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show]
-
-  # scope module: :posts do
-  #  resources :likes, only: :create
-  # end
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end

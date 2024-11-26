@@ -22,7 +22,13 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should redirect if user not signed' do
+    get new_post_url
+    assert_response :redirect
+  end
+
   test 'should get new' do
+    sign_in @user
     get new_post_url
     assert_response :success
   end

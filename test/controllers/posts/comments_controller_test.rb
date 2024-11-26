@@ -19,6 +19,7 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
       post post_comments_url @post, params: { post_comment: @attrs }
     end
     assert { @post.comments.first.ancestry == '/' }
+    assert { 'yeah good' == flash[:notice]}
   end
 
   test 'create subcomment' do
@@ -34,5 +35,15 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     first = triple_nested_comment.ancestry
     second = [@comment.ancestry, @comment.id, '/'].join
     assert { first == second }
+  end
+
+  test 'blank comment' do
+    @post = posts(:post_without_comment)
+    @attrs = {content: ''}
+    assert_difference('@post.comments.count', 0) do
+      post post_comments_url @post, params: { post_comment: @attrs }
+    end
+    #assert_redirected_to post_path
+    assert { "Article was successfully created." == flash[:notice] }
   end
 end
