@@ -46,4 +46,16 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     get post_url(@post)
     assert_response :success
   end
+
+  test 'delete post by not authenificate user' do
+  end
+
+  test 'delete post by other user' do
+    sign_in @user
+    @second_user_post = posts(:two)
+    assert_difference('Post.count', 0) do
+      delete post_url @post
+    end
+    assert_response :redirect
+  end
 end
