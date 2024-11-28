@@ -2,6 +2,7 @@
 
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @posts = Post.all.order('created_at DESC')
   end
@@ -49,6 +50,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def authentificate_current_user
+
+  end
 
   # Only allow a list of trusted parameters through.
   def post_params
