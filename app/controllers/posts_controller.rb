@@ -34,6 +34,11 @@ class PostsController < ApplicationController
   def update
     @post = Post.find params[:id]
 
+    unless current_user.id == @post.creator.id
+      redirect_to posts_url, notice: 'Нельзя трогать чужое!!!'
+      return
+    end
+
 
     if @post.update(post_params)
       redirect_to @post, notice: t('.success')
@@ -49,7 +54,6 @@ class PostsController < ApplicationController
       redirect_to posts_url, notice: 'Нельзя трогать чужое!!!'
       return
     end
-    debugger
 
     @post.destroy
 
@@ -57,10 +61,6 @@ class PostsController < ApplicationController
   end
 
   private
-
-  def authentificate_current_user
-
-  end
 
   # Only allow a list of trusted parameters through.
   def post_params

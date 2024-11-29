@@ -4,6 +4,9 @@ ru:
       comment:
         answer: Есть что ответить...
         author: 'Комментарий от %{author}, создан: %{time}'
+      create:
+        success_comment: Комментарий успешно создан
+        blank_comment: Комментарий не может быть пустым
 
     index:
       title: Бурлаки на Блоге

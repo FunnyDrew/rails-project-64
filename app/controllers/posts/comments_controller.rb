@@ -18,9 +18,9 @@ class Posts::CommentsController < Posts::ApplicationController
     @comment.user = current_user
     # debugger
     if @comment.save
-      redirect_to @post, status: :ok, notice: 'das ist fantastiche'
+      redirect_to @post, status: :ok, notice: t('.success_comment')
     else
-      redirect_to @post, status: :unprocessable_entity, notice: 'what the fuck?'
+      redirect_to @post, status: :unprocessable_entity, notice: t('blank_comment')
     end
   end
 
