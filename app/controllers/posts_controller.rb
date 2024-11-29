@@ -34,6 +34,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find params[:id]
 
+
     if @post.update(post_params)
       redirect_to @post, notice: t('.success')
     else
@@ -43,6 +44,12 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find params[:id]
+
+    unless current_user.id == @post.creator.id
+      redirect_to posts_url, notice: 'Нельзя трогать чужое!!!'
+      return
+    end
+    debugger
 
     @post.destroy
 
