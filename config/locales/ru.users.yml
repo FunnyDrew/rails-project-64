@@ -1,6 +1,7 @@
 ru:
   users:
     show:
+      access_error: Вам недоступна статистика другого пользователя
       page_name: Статистика
       author: 'Автор: %{author}'
       registred_at: 'Зарегестрирован: %{time}'

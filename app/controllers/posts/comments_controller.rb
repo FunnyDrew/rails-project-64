@@ -20,7 +20,7 @@ class Posts::CommentsController < Posts::ApplicationController
     if @comment.save
       redirect_to @post, notice: t('.success_comment')
     else
-      redirect_to @post, status: :unprocessable_entity, notice: t('blank_comment')
+      redirect_to @post, notice: t('blank_comment')
     end
   end
 

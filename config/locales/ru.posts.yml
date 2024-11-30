@@ -28,6 +28,8 @@ ru:
       author: "Автор: %{name}"
     create:
       success: Пост создан
+    edit:
+      access_error: Нельзя трогать чужое!
     update:
       success: Пост изменен
       access_error: Нельзя трогать чужое!
