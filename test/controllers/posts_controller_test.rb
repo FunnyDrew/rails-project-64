@@ -47,9 +47,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'delete post by not authenificate user' do
-  end
-
   test 'delete post by other user' do
     sign_in @user
     @second_user_post = posts(:two)
@@ -57,5 +54,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
       delete post_url @second_user_post
     end
     assert_response :redirect
+    assert { flash[:notice] == I18n.t('.posts.destroy.access_error') }
   end
 end

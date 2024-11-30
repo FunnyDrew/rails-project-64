@@ -15,15 +15,15 @@
             = t('.created', time_ago: (distance_of_time_in_words @post.created_at, Time.zone.now))
         div
           = t('posts.index.liked', count: @post.likes.count)
-          - unless user_signed_in?
-              i.bi.bi-arrow-through-heart-fill.h5.ms-2.disable
-          - else              
-              - if @post.likes.where(user: @current_user).empty?
-                = link_to post_likes_path(@post, authenticity_token: form_authenticity_token), data: { turbo_method: :create } do
-                  i.bi.bi-arrow-through-heart.h5.ms-2
-              - else
-                = link_to post_like_path(@post), data: { turbo_method: :delete } do
-                  i.bi.bi-arrow-through-heart-fill.h5.ms-2
+          - if user_signed_in?
+            - if @post.likes.where(user: @current_user).empty?
+              = link_to post_likes_path(@post, authenticity_token: form_authenticity_token), data: { turbo_method: :create } do
+                i.bi.bi-arrow-through-heart.h5.ms-2
+            - else
+              = link_to post_like_path(@post), data: { turbo_method: :delete } do
+                i.bi.bi-arrow-through-heart-fill.h5.ms-2
+          - else
+            i.bi.bi-arrow-through-heart-fill.h5.ms-2.disable
 
     .card-footer
       - if user_signed_in?

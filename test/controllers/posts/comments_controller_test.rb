@@ -19,7 +19,7 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
       post post_comments_url @post, params: { post_comment: @attrs }
     end
     assert { @post.comments.first.ancestry == '/' }
-    assert { 'yeah good' == flash[:notice]}
+    assert { flash[:notice] == I18n.t('.posts.comments.create.success_comment') }
   end
 
   test 'create subcomment' do
@@ -39,11 +39,10 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
 
   test 'blank comment' do
     @post = posts(:post_without_comment)
-    @attrs = {content: ''}
+    @attrs = { content: '' }
     assert_difference('@post.comments.count', 0) do
       post post_comments_url @post, params: { post_comment: @attrs }
     end
-    #assert_redirected_to post_path
-    assert { "Article was successfully created." == flash[:notice] }
+    assert { flash[:notice] == I18n.t('.blank_comment') }
   end
 end

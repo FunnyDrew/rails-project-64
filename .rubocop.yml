@@ -47,6 +47,3 @@ Style/AsciiComments:
 
 Metrics/ParameterLists:
   Enabled: false
-
-Rails/UniqueValidationWithoutIndex:
-  Enabled: false

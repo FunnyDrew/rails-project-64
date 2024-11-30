@@ -1,4 +1,5 @@
 ru:
+  blank_comment: Комментарий не должен быть пустым
   datetime:
     distance_in_words:
       about_x_hours:

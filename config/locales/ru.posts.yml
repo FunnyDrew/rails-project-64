@@ -6,7 +6,6 @@ ru:
         author: 'Комментарий от %{author}, создан: %{time}'
       create:
         success_comment: Комментарий успешно создан
-        blank_comment: Комментарий не может быть пустым
 
     index:
       title: Бурлаки на Блоге
@@ -31,5 +30,9 @@ ru:
       success: Пост создан
     update:
       success: Пост изменен
+      access_error: Нельзя трогать чужое!
     destroy:
       success: Пост разрушен :)
+      access_error: Нельзя трогать чужое!
+
+
