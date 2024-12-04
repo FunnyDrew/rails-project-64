@@ -2,7 +2,6 @@
 
 class Posts::CommentsController < Posts::ApplicationController
   def create
-    # debugger
     @post = resource_post
 
     @comment = if post_comment_params[:parent_id]
@@ -16,7 +15,6 @@ class Posts::CommentsController < Posts::ApplicationController
                end
 
     @comment.user = current_user
-    # debugger
     if @comment.save
       redirect_to @post, notice: t('.success_comment')
     else
@@ -27,7 +25,6 @@ class Posts::CommentsController < Posts::ApplicationController
   private
 
   def post_comment_params
-    # debugger
     params.require(:post_comment).permit(:content, :parent_id)
   end
 end
