@@ -9,7 +9,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find params[:id]
-    @current_user = current_user
   end
 
   def new
@@ -26,8 +25,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.creator = current_user
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       redirect_to @post, notice: t('.success')
