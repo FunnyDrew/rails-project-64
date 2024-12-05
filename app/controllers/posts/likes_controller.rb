@@ -2,7 +2,6 @@
 
 class Posts::LikesController < ApplicationController
   def create
-    # debugger
 
     @like = PostLike.new
     @post = Post.find(params[:post_id])
@@ -10,7 +9,6 @@ class Posts::LikesController < ApplicationController
     @like.post = @post
 
     @like.user = current_user
-    # debugger
     if @like.save
       redirect_to @post
     else
