@@ -32,12 +32,10 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('@post.comments.count', 1) do
       post post_comments_url @post, params: { post_comment: @attrs.merge(parent_id: @comment.id) }
     end
-    triple_nested_comment = PostComment.find_by @attrs
-
+    triple_nested_comment = PostComment.find_by @attrs.merge(post_id: @post.id,
+     user_id: @user.id,
+     ancestry: [@comment.ancestry, @comment.id, '/'].join)
     assert { triple_nested_comment }
-    first = triple_nested_comment.ancestry
-    second = [@comment.ancestry, @comment.id, '/'].join
-    assert { first == second }
   end
 
   test 'blank comment' do
