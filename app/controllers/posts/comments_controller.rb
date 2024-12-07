@@ -2,23 +2,12 @@
 
 class Posts::CommentsController < Posts::ApplicationController
   def create
-    @post = resource_post
-
-    @comment = if post_comment_params[:parent_id]
-
-                 resource_post
-                   .comments
-                   .children_of(post_comment_params[:parent_id])
-                   .build(post_comment_params)
-               else
-                 resource_post.comments.build(post_comment_params)
-               end
-
+    @comment = resource_post.comments.build(post_comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to @post, notice: t('.success_comment')
+      redirect_to resource_post, notice: t('.success_comment')
     else
-      redirect_to @post, notice: t('blank_comment')
+      redirect_to resource_post, notice: t('blank_comment')
     end
   end
 

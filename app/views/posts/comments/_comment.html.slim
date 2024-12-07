@@ -1,7 +1,6 @@
 .card.border-success.mb-3
   .card-header
     = t('.author', author: comment.user.email, time: l(comment.created_at, format: :long))
-    /l(comment.created_at, format: :short)
   .card-body.text-success
     p.card-text
       =comment.content
