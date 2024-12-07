@@ -1,27 +1,22 @@
 # frozen_string_literal: true
 
-class Posts::LikesController < ApplicationController
+class Posts::LikesController < Posts::ApplicationController
   def create
 
-    @like = PostLike.new
-    @post = Post.find(params[:post_id])
+    @like = resource_post.likes.build(user_id: current_user.id)
 
-    @like.post = @post
-
-    @like.user = current_user
     if @like.save
-      redirect_to @post
+      redirect_to resource_post
     else
-      redirect_to @post, status: :unprocessable_entity
+      redirect_to resource_post, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @post_like = @post.likes.find_by(user_id: current_user.id)
+    @post_like = resource_post.likes.find_by(user_id: current_user.id)
 
     @post_like&.destroy
 
-    redirect_to @post
+    redirect_to resource_post
   end
 end
