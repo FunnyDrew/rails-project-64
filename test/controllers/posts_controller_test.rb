@@ -12,7 +12,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @attrs = {
       title: Faker::Movies::Ghostbusters.character,
       body: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
-      creator: @user,
+      creator: @user.id,
       category_id: @category.id
     }
   end
