@@ -47,6 +47,24 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get edit" do
+    sign_in @user
+    get edit_post_url(@post)
+    assert_response :success
+  end
+
+  test "should update post" do
+    new_title = {title: Faker::Lorem.paragraph_by_chars(number: 50, supplemental: false)}
+    @new_attrs = @attrs.merge(new_title)
+    sign_in @user
+    patch post_url(@post), params: { post: @new_attrs }
+    old_post = Post.find_by @attrs
+    assert_nil old_post
+    new_post = Post.find_by @new_attrs
+    assert { new_post }
+    assert_redirected_to post_url(@post)
+  end
+
   test 'delete post by other user' do
     sign_in @user
     @second_user_post = posts(:two)

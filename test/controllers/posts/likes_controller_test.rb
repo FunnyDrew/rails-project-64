@@ -8,9 +8,7 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
   end
-  # test "the truth" do
-  #   assert true
-  # end
+
   test 'create Like by registred user' do
     @post = posts(:unliked_post)
     sign_in @user
