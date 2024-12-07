@@ -17,7 +17,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find params[:id]
-    unless current_user.id == @post.creator.id
+    unless current_user.id == @post.creator_id
       redirect_to posts_url, notice: t('.access_error')
       return
     end
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find params[:id]
 
-    unless current_user.id == @post.creator.id
+    unless current_user.id == @post.creator_id
       redirect_to posts_url, notice: t('.access_error')
       return
     end
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find params[:id]
 
-    unless current_user.id == @post.creator.id
+    unless current_user.id == @post.creator_id
       redirect_to posts_url, notice: t('.access_error')
       return
     end
