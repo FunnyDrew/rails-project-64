@@ -15,6 +15,7 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('@post.likes.count', 1) do
       post post_likes_url @post
     end
+    assert { @post.likes.find_by user_id: @user.id }
   end
 
   test 'delete Like by Liker' do
