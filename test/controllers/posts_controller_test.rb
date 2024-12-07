@@ -50,7 +50,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test 'delete post by other user' do
     sign_in @user
     @second_user_post = posts(:two)
-    assert_difference('Post.count', 0) do
+    assert_no_difference('Post.count') do
       delete post_url @second_user_post
     end
     assert_response :redirect

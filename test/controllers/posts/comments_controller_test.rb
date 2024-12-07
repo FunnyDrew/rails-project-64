@@ -40,7 +40,7 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
   test 'blank comment' do
     @post = posts(:post_without_comment)
     @attrs = { content: '' }
-    assert_difference('@post.comments.count', 0) do
+    assert_no_difference('@post.comments.count') do
       post post_comments_url @post, params: { post_comment: @attrs }
     end
     assert { flash[:notice] == I18n.t('.blank_comment') }
