@@ -20,6 +20,9 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     end
     assert { @post.comments.first.ancestry == '/' }
     assert { flash[:notice] == I18n.t('.posts.comments.create.success_comment') }
+    comment = PostComment.find_by (@attrs)
+    assert { comment }
+    assert { comment.user_id == @user.id}
   end
 
   test 'create subcomment' do
