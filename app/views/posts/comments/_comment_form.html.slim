@@ -1,0 +1,4 @@
+= simple_form_for comment, method: :post, url: post_comments_path(post) do |c|
+  =c.input :content
+  =c.hidden_field :parent_id, value: parent_id
+  =c.button :submit, class: 'btn btn-warning'
