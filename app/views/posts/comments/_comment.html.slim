@@ -1,9 +1,10 @@
 .card.border-success.mb-3
   .card-header
-    = t('.author', author: comment.user.email, time: l(comment.created_at, format: :long))
+   - debugger
+    = t('.author', author: comment.user_id, time: l(comment.created_at, format: :long))
   .card-body.text-success
     p.card-text
-      =comment.content
+      = comment[:content]
       = render partial: 'posts/comments/comment', collection: comment.children, locals: {new_comment:}
   .card-footer.bg-transparent.border-success
     - if user_signed_in?

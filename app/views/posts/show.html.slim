@@ -29,5 +29,5 @@
       - if user_signed_in?
         = render partial: 'posts/comments/comment_form', locals: {comment: @comment, post: @post, parent_id: nil}
         .mb-3
-      - @post.comments.where.not(id: nil).where(ancestry: '/').order(created_at: :desc).each do |comment|
+      - @comments_tree.each do |comment, child|
          = render partial: 'posts/comments/comment', locals: { comment: , new_comment: @comment, post: @post}
