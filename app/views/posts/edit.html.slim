@@ -2,8 +2,4 @@
   - content_for :title
     h1.mt-5
       = t('.edit')
-  == simple_form_for @post do |p|
-      =p.input :title
-      =p.association :category
-      =p.input :body
-      =p.button :submit, class: 'btn btn-primary'
+  = render partial: 'posts/post_form', locals: { post: @post }
