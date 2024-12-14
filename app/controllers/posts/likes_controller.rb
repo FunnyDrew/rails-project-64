@@ -2,7 +2,6 @@
 
 class Posts::LikesController < Posts::ApplicationController
   def create
-
     @like = resource_post.likes.build(user_id: current_user.id)
 
     if @like.save

@@ -4,12 +4,15 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
 
   def index
-    @posts = Post.order('created_at DESC')
+    @posts = Post.order('created_at DESC').includes(:creator)
   end
 
   def show
     @post = Post.find params[:id]
-    @comments_tree = @post.comments.arrange
+    @comments_tree = @post.comments.includes(:user).arrange
+    @post_user_like = if current_user
+                        @post.likes.where(user: current_user)
+                      end
     @comment = PostComment.new
   end
 

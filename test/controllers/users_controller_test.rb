@@ -18,5 +18,4 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get user_path(@user_owner.id)
     assert_response(:redirect)
   end
-
 end

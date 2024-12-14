@@ -1,7 +1,7 @@
 .container
   - content_for :title
     h1.mt-5
-      = 'Edit'
+      = t('.edit')
   == simple_form_for @post do |p|
       =p.input :title
       =p.association :category

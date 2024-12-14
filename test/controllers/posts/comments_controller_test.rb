@@ -20,9 +20,9 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     end
     assert { @post.comments.first.ancestry == '/' }
     assert { flash[:notice] == I18n.t('.posts.comments.create.success_comment') }
-    comment = PostComment.find_by (@attrs)
+    comment = PostComment.find_by(@attrs)
     assert { comment }
-    assert { comment.user_id == @user.id}
+    assert { comment.user_id == @user.id }
   end
 
   test 'create subcomment' do
@@ -33,8 +33,8 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
       post post_comments_url @post, params: { post_comment: @attrs.merge(parent_id: @comment.id) }
     end
     triple_nested_comment = PostComment.find_by @attrs.merge(post_id: @post.id,
-     user_id: @user.id,
-     ancestry: [@comment.ancestry, @comment.id, '/'].join)
+                                                             user_id: @user.id,
+                                                             ancestry: [@comment.ancestry, @comment.id, '/'].join)
     assert { triple_nested_comment }
   end
 

@@ -16,18 +16,18 @@
         div
           = t('posts.index.liked', count: @post.likes.count)
           - if user_signed_in?
-            - if @post.likes.where(user: current_user).empty?
+            - if @post_user_like.empty?
               = link_to post_likes_path(@post, authenticity_token: form_authenticity_token), data: { turbo_method: :create } do
                 i.bi.bi-arrow-through-heart.h5.ms-2
             - else
-              = link_to post_like_path(@post), data: { turbo_method: :delete } do
+              = link_to post_like_path(@post, @post_user_like), data: { turbo_method: :delete } do
                 i.bi.bi-arrow-through-heart-fill.h5.ms-2
           - else
             i.bi.bi-arrow-through-heart-fill.h5.ms-2.disable
 
     .card-footer
       - if user_signed_in?
-        = render partial: 'posts/comments/comment_form', locals: {comment: @comment, post: @post, parent_id: nil}
+        = render partial: 'posts/comments/comment_form', locals: { comment: @comment, post: @post, parent_id: nil }
         .mb-3
       - @comments_tree.each do |comment, child|
-         = render partial: 'posts/comments/comment', locals: { comment: , new_comment: @comment, post: @post}
+         = render partial: 'posts/comments/comment', locals: { comment:, child:, new_comment: @comment, post: @post }

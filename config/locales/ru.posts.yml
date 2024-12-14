@@ -30,6 +30,7 @@ ru:
       success: Пост создан
     edit:
       access_error: Нельзя трогать чужое!
+      edit: Редактировать пост
     update:
       success: Пост изменен
       access_error: Нельзя трогать чужое!

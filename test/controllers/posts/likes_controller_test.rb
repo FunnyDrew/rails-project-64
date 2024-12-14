@@ -15,7 +15,7 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('@post.likes.count', 1) do
       post post_likes_url @post
     end
-    assert { @post.likes.find_by user_id:@user.id }
+    assert { @post.likes.find_by user_id: @user.id }
   end
 
   test 'delete Like by Liker' do
@@ -25,13 +25,11 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
       delete post_like_url @post, @user
     end
   end
-=begin
-  test 'delete Like by Liker by Vasilisa' do
-    @like = post_likes(:liked_post_by_one)
-    delete post_like_url @like.post
-    assert_nil PostLike.find_by(id: @like.id)
-  end
-=end
+  #   test 'delete Like by Liker by Vasilisa' do
+  #     @like = post_likes(:liked_post_by_one)
+  #     delete post_like_url @like.post
+  #     assert_nil PostLike.find_by(id: @like.id)
+  #   end
   test 'delete Like by other user' do
     @user = users(:two)
     @post = posts(:post_liked_by_user_one)

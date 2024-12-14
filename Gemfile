@@ -61,8 +61,6 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
 
-  gem 'i18n-debug'
-
   gem 'rubocop'
 
   gem 'rubocop-rails', require: false
@@ -80,6 +78,8 @@ group :development do
   gem 'web-console'
 
   gem 'html2slim-ruby3', '~> 0.2.1'
+
+  gem 'query_count'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
