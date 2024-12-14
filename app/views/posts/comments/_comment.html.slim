@@ -6,7 +6,7 @@
       = comment[:content]
       - unless child.empty?
         - child.each do |comment, child|
-          = render partial: 'posts/comments/comment', locals: { new_comment:, child:, comment: }
+          = render partial: 'posts/comments/comment', locals: { new_comment:, child:, comment:, post: }
   .card-footer.bg-transparent.border-success
     - if user_signed_in?
       = link_to "##{comment.id}", data: { 'bs-toggle': 'collapse' }, aria: { controls: comment.id.to_s } do
