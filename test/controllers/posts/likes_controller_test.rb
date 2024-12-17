@@ -29,7 +29,6 @@ class Posts::LikesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'delete Like by other user' do
-    skip
     @user = users(:two)
     @post = posts(:post_liked_by_user_one)
     @like = post_likes(:liked_post_by_one)
