@@ -27,9 +27,9 @@
         td
           = post.title
         td.text-center
-          = post.comments.count.to_s
+          = post.comments.size
         td.text-center
-          = post.likes.count.to_s
+          = post.likes.size
         td.text-center
           = link_to edit_post_path(post), class: 'me-3' do
             = t('.edit_post')
