@@ -17,7 +17,7 @@
           = t('posts.index.liked', count: @post.likes.count)
           - if user_signed_in?
             - if @post_user_like.empty?
-              = link_to post_likes_path(@post, authenticity_token: form_authenticity_token), data: { turbo_method: :create } do
+              = link_to post_likes_path(@post), data: { turbo_method: :post } do
                 i.bi.bi-arrow-through-heart.h5.ms-2
             - else
               = link_to post_like_path(@post, @post_user_like), data: { turbo_method: :delete } do
