@@ -54,14 +54,12 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update post' do
-    new_title = { title: Faker::Lorem.paragraph_by_chars(number: 50, supplemental: false) }
-    @new_attrs = @attrs.merge(new_title)
     sign_in @user
-    patch post_url(@post), params: { post: @new_attrs }
-    old_post = Post.find_by @attrs
+    patch post_url(@post), params: { post: @attrs }
+    old_post = Post.find_by title: @post.title
     assert_nil old_post
-    new_post = Post.find_by @new_attrs
-    assert { new_post }
+    updated_post = Post.find_by @attrs
+    assert { updated_post }
     assert_redirected_to post_url(@post)
   end
 
