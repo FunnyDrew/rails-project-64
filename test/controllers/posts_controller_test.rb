@@ -12,7 +12,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @attrs = {
       title: Faker::Movies::Ghostbusters.character,
       body: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false),
-      creator: @user.id,
       category_id: @category.id
     }
   end
@@ -56,10 +55,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test 'should update post' do
     sign_in @user
     patch post_url(@post), params: { post: @attrs }
-    old_post = Post.find_by title: @post.title
-    assert_nil old_post
-    updated_post = Post.find_by @attrs
-    assert { updated_post }
+    updated = Post.find_by @attrs
+
+    assert { updated }
+    assert { updated.id == @post.id}
     assert_redirected_to post_url(@post)
   end
 
