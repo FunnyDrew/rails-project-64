@@ -26,7 +26,6 @@ class PostsController < ApplicationController
       redirect_to posts_url, notice: t('.access_error')
       return
     end
-    @post
   end
 
   def create
