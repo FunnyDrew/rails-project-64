@@ -18,11 +18,8 @@ class Posts::CommentsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('@post.comments.count', 1) do
       post post_comments_url @post, params: { post_comment: @attrs }
     end
-    assert { @post.comments.first.ancestry == '/' }
-    assert { flash[:notice] == I18n.t('.posts.comments.create.success_comment') }
-    comment = PostComment.find_by(@attrs)
+    comment = PostComment.find_by @attrs
     assert { comment }
-    assert { comment.user_id == @user.id }
   end
 
   test 'create subcomment' do

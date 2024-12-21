@@ -58,7 +58,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     updated = Post.find_by @attrs
 
     assert { updated }
-    assert { updated.id == @post.id}
+    assert { updated.id == @post.id }
     assert_redirected_to post_url(@post)
   end
 
