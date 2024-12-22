@@ -10,9 +10,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find params[:id]
     @comments_tree = @post.comments.includes(:user).order('created_at DESC').arrange
-    @post_user_like = if current_user
-                        @post.likes.where(user: current_user)
-                      end
+    @post_user_like = @post.likes.find_by user: current_user
     @comment = PostComment.new
   end
 
